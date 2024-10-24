@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 if os.getenv("HF_EMAIL") and os.getenv("HF_PASSWORD"):
-    # Log in to huggingface and grant authorization to huggingchat
     sign = Login(os.getenv("HF_EMAIL"), os.getenv("HF_PASSWORD"))
     cookies = sign.login()
 else:

@@ -1,4 +1,4 @@
-FROM python:3.12-alpine as builder
+FROM python:3.12-alpine AS builder
 
 RUN pip install --upgrade pip
 
@@ -6,8 +6,7 @@ COPY requirements.txt /tmp/requirements.txt
 
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-
-FROM python:3.12-alpine as base
+FROM python:3.12-alpine AS base
 
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
